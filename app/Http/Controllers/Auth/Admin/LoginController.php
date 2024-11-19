@@ -14,7 +14,7 @@ class LoginController extends Controller
 {
     public function login(): View
     {
-        return view('admin.auth.login');
+        return view('login.admin_login');
     }
 
     public function check_user(Request $request): RedirectResponse
@@ -24,8 +24,7 @@ class LoginController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        if(! Auth::guard('admin')->attempt($request->only('email', 'password'), $request->boolean('remember')))
-        {
+        if (! Auth::guard('admin')->attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
