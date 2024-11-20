@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
+         \App\Models\Specialist::factory(50)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -26,10 +27,12 @@ class DatabaseSeeder extends Seeder
         //         'password' => Hash::make('admin123')
         //     ]);
 
-        \App\Models\Doctor::create([
-            'name' => 'Jamil Hossain',
-            'email' => 'jamil@gmail.com',
-            'password' => Hash::make('admin123')
-        ]);
+        // \App\Models\Doctor::create([
+        //     'name' => 'Jamil Hossain',
+        //     'email' => 'jamil@gmail.com',
+        //     'password' => Hash::make('admin123')
+        // ]);
+
+
     }
 }
