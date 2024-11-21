@@ -9,13 +9,14 @@ use Illuminate\Notifications\Notifiable;
 
 class Doctor extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable; 
+    use HasApiTokens, HasFactory, Notifiable;
     protected $guard = 'doctor';
 
     protected $fillable = [
         'name',
         'email',
-        'password'
+        'password',
+        'specialist_id'
     ];
 
     protected $hidden = [
@@ -26,4 +27,11 @@ class Doctor extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+public function specialist(){
+return $this->belongsTo(Specialist::class);
 }
+
+}
+
+

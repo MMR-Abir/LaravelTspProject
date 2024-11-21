@@ -14,24 +14,26 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(10)->create();
-         \App\Models\Specialist::factory(50)->create();
+        //  \App\Models\Specialist::factory(50)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
 
-        // \App\Models\Admin::create([
-        //         'name' => 'Saif Jahan',
-        //         'email' => 'saif@gmail.com',
-        //         'password' => Hash::make('admin123')
-        //     ]);
+        \App\Models\Admin::create([
+                'name' => 'Saif Jahan',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('admin123')
 
-        // \App\Models\Doctor::create([
-        //     'name' => 'Jamil Hossain',
-        //     'email' => 'jamil@gmail.com',
-        //     'password' => Hash::make('admin123')
-        // ]);
+            ]);
+
+        \App\Models\Doctor::create([
+            'name' => 'Jamil Hossain',
+            'email' => 'doctor@gmail.com',
+            'password' => Hash::make('admin123'),
+            'specialist_id'=>'1'
+        ]);
 
 
     }

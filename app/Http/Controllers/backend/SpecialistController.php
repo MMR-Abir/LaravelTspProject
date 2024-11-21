@@ -22,7 +22,7 @@ return view('backend.specialist.index', compact('items'));
      */
     public function create()
     {
-        //
+        return view('backend.specialist.create');
     }
 
     /**
@@ -30,7 +30,15 @@ return view('backend.specialist.index', compact('items'));
      */
     public function store(Request $request)
     {
-        //
+        $specialist = new Specialist;
+
+        $specialist->name =$request->specialist;
+        $specialist->details =$request->details;
+
+       $specialist->save();
+       return redirect()->route('specialist.index')->with('msg','Successfully Created');
+
+
     }
 
     /**
@@ -46,7 +54,9 @@ return view('backend.specialist.index', compact('items'));
      */
     public function edit(Specialist $specialist)
     {
-        //
+        // $data= $specialist;
+return view('backend.specialist.edit',compact('specialist'));
+
     }
 
     /**
@@ -54,7 +64,12 @@ return view('backend.specialist.index', compact('items'));
      */
     public function update(Request $request, Specialist $specialist)
     {
-        //
+        $specialist->name=$request->specialist;
+        $specialist->details=$request->details;
+
+        $specialist->update();
+        return redirect()->route('specialist.index')->with('msg','Updated');
+
     }
 
     /**
@@ -62,6 +77,7 @@ return view('backend.specialist.index', compact('items'));
      */
     public function destroy(Specialist $specialist)
     {
-        //
+$specialist->delete();
+return redirect()->route('specialist.index')->with('msg','Delected');
     }
 }

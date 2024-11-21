@@ -17,6 +17,7 @@
                 </li>
             </ul>
         </li>
+
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr"><i class="icon-basket-loaded mr-10"></i>Specialist<span class="pull-right"><i class="fa fa-fw fa-angle-down"></i></span></a>
             <ul id="ecom_dr" class="collapse collapse-level-1">
@@ -24,7 +25,20 @@
                     <a href="{{route('specialist.index')}}">All Specialist</a>
                 </li>
                 <li>
-                    <a href="product.html">New Specialist</a>
+                    <a href="{{url('admin/specialist/create')}}">New Specialist</a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dr_list"><i class="icon-basket-loaded mr-10"></i>Doctor Specialist<span class="pull-right"><i class="fa fa-fw fa-angle-down"></i></span></a>
+            <ul id="dr_list" class="collapse collapse-level-1">
+                <li>
+                    <a href="{{route('specialist.index')}}">Doctor Specialist</a>
+                </li>
+                <li>
+                    <a href="{{url('admin/specialist/create')}}">New Doctor Specialist</a>
                 </li>
 
             </ul>
