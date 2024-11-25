@@ -46,7 +46,8 @@ return view('backend.specialist.index', compact('items'));
      */
     public function show(Specialist $specialist)
     {
-        //
+//dd($specialist);
+return view('backend.specialist.show', compact('specialist'));
     }
 
     /**

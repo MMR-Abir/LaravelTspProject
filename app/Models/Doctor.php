@@ -14,9 +14,10 @@ class Doctor extends Authenticatable
 
     protected $fillable = [
         'name',
+        'specialist_id',
         'email',
         'password',
-        'specialist_id'
+
     ];
 
     protected $hidden = [

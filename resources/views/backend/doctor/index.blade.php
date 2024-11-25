@@ -68,8 +68,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Specialist Name</th>
-                                            <th>Details</th>
+                                            <th>Doctor Name</th>
+                                            <th>Specialist</th>
                                             <th>Action</th>
 
                                         </tr>
@@ -79,7 +79,7 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->name}}</td>
-                                            <td>{{$item->details}}</td>
+                                            <td>{{$item->specialist->name}}</td>
                                             <td>
 
 
