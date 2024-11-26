@@ -62,7 +62,7 @@
                                             <th>ID</th>
                                             <th>Specialist Name</th>
                                             <th>Details</th>
-                                            <th style="width:280px";>Action</th>
+                                            <th style="width: 30%;">Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -80,13 +80,13 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->specialist->name}}</td>
-                                            <td>
+                                            <td style="width: 30%;">
 
 
 
-<form action="{{route('specialist.destroy', $item->id)}}" method="post">
-<a href="{{route('specialist.show', $item->id)}}" class="btn btn-success"> View</a>
-<a href="{{route('specialist.edit', $item->id)}}" class="btn btn-info"> Edit</a>
+<form action="{{route('doctor.destroy', $item->id)}}" method="post">
+<a href="{{route('doctor.show', $item->id)}}" class="btn btn-success"> View</a>
+<a href="{{route('doctor.edit', $item->id)}}" class="btn btn-info"> Edit</a>
 @csrf
 @method('DELETE')
 <button type="submit" class="btn btn-danger" name="submit">Delete</button>

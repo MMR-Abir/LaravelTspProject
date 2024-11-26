@@ -63,7 +63,10 @@
                                             <label for="exampleInputuname_4" class="col-sm-3 control-label">Doctor Name*</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" id="exampleInputuname_4" name="name" placeholder="Username">
+                                                    <input type="text" class="form-control" value="{{old('name')}}" id="exampleInputuname_4" name="name" placeholder="Username">
+                                                    @error('name')
+																	<div class="alert alert-danger">{{$message}}</div>
+																	@enderror
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -78,10 +81,13 @@
                                                     @foreach($specialists as $specialist)
 
 
-                                                    <option value="{{$specialist->id}}">{{$specialist->name}}</option>
+                                                    <option value="{{$specialist->id}}" @selected(old('specialist')==$specialist->id)>{{$specialist->name}}</option>
 
                                                     @endforeach
                                                 </select>
+                                                @error('specialist')
+																	<div class="alert alert-danger">{{$message}}</div>
+																	@enderror
                                             </div>
                                         </div>
 
@@ -89,7 +95,10 @@
                                             <label for="exampleInputuname_4" class="col-sm-3 control-label">Email*</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
-                                                    <input type="email" class="form-control" id="exampleInputuname_4" name="email" placeholder="Username">
+                                                    <input type="email" class="form-control"  value="{{old('email')}}" id="exampleInputuname_4" name="email" placeholder="Username">
+                                                    @error('email')
+																	<div class="alert alert-danger">{{$message}}</div>
+																	@enderror
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -101,6 +110,9 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <input type="password" class="form-control" id="exampleInputuname_4" name="password" placeholder="Username">
+                                                    @error('password')
+																	<div class="alert alert-danger">{{$message}}</div>
+																	@enderror
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -111,7 +123,7 @@
                                             <label for="exampleInputuname_4" class="col-sm-3 control-label">Confirm Password*</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
-                                                    <input type="password" class="form-control" id="exampleInputuname_4" name="con_password" placeholder="Username">
+                                                    <input type="password" class="form-control" id="exampleInputuname_4" name="password_confirmation" placeholder="Username">
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
@@ -132,11 +144,15 @@
                                             <label class="col-sm-3 control-label">Status</label>
                                             <div class="radio">
 
-                                                    <input id="radio1" type="radio"  name="status" value="active" >
+                                                    <input id="radio1" type="radio"  name="status" value="active" @if(old('status')=='active') checked @endif>
                                                     <label for="radio1">Active</label>
 
-                                                    <input id="radio2" type="radio"  name="status" value="inactive">
+                                                    <input id="radio2" type="radio"  name="status" value="inactive" @if(old('status')=='inactive') checked @endif>
                                                     <label for="radio1">Inactive</label>
+
+                                                    @error('status')
+																	<div class="alert alert-danger">{{$message}}</div>
+																	@enderror
 
 
                                             </div>

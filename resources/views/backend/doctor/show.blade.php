@@ -40,7 +40,8 @@
     <!-- /Title -->
 
     <!-- Row -->
-{{$specialist->name}}
+{{$doctor->name}}
+<img src="{{asset($doctor->photo)}}" alt="">
     <!-- /Row -->
 </div>
 
