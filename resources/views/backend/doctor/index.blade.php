@@ -60,8 +60,9 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Specialist Name</th>
-                                            <th>Details</th>
+                                            <th>Doctor Name</th>
+                                            <th>Specialist</th>
+                                            <th>Photo</th>
                                             <th style="width: 30%;">Action</th>
                                         </tr>
                                     </thead>
@@ -70,6 +71,7 @@
                                             <th>ID</th>
                                             <th>Doctor Name</th>
                                             <th>Specialist</th>
+                                            <th>Photo</th>
                                             <th>Action</th>
 
                                         </tr>
@@ -80,6 +82,7 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$item->name}}</td>
                                             <td>{{$item->specialist->name}}</td>
+                                            <td><img src="{{asset($item->photo)}}" width="100px"></td>
                                             <td style="width: 30%;">
 
 

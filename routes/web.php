@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\SpecialistController;
+use App\Http\Controllers\frontend\AppoinmentController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,12 @@ Route::get('/about', function () {
     return view('frontend.about');
 });
 
+
+//Appoinment
+
+Route::get('/appoinment',[AppoinmentController::class, 'create'] )->name('appoinment.create');
+
+Route::post('/appoinment',[AppoinmentController::class, 'store'] );
 // Admin Dashboard
 // Route::get('/admin/dashboard', function () {
 //     return view('backend.admin_dashboard');

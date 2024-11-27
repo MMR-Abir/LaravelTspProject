@@ -79,10 +79,13 @@
                                             <div class="col-sm-9">
                                                 <select name="specialist" class="form-control" id="">
                                                     <option value="">Select One</option>
-                                                    @foreach($specialists as $specialist)
+                                                    @foreach($specialists as $sepcialist)
 
 
-                                                    <option value="{{$specialist->id}}" @selected(old('specialist')==$specialist->id)>{{$specialist->name}}</option>
+                                                    <option value="{{$sepcialist->id}}" @if(old('specialist')==$sepcialist->id) selected
+													@elseif($doctor->specialist_id == $sepcialist->id)
+													  selected
+													@endif >{{$sepcialist->name}}</option>
 
                                                     @endforeach
                                                 </select>
@@ -113,7 +116,9 @@
                                             <label for="exampleInputuname_4" class="col-sm-3 control-label">Photo*</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
-                                                    <input type="file" class="form-control" id="exampleInputuname_4" name="photo" placeholder="Username">
+                                                    <input type="file" class="form-control" id="exampleInputuname_4" name="photo"  placeholder="Username"> <br>
+                                                       <img src="{{asset($doctor->photo)}}" width="50px" alt="">
+
                                                     <div class="input-group-addon"><i class="icon-user"></i></div>
                                                 </div>
                                             </div>
