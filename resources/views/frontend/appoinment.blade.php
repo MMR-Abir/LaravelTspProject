@@ -55,10 +55,11 @@
                                     <option value="{{$doctor->id}}" @selected(old('doctor') ==$doctor->id)>{{$doctor->name}} || {{$doctor->specialist->name}}</option>
                                     @endforeach
                                  </select>
-                                                                   @error('doctor')
+
+                              </div>
+                                                                  @error('doctor')
 																	<div class="alert alert-danger">{{$message}}</div>
 																	@enderror
-                              </div>
                            </div>
 
                            <div class="col-xl-12 col-lg-12 col-md-12 mb-20">
