@@ -12,8 +12,8 @@ class Appoinment extends Model
         'name',
         'email',
         'phone',
-'doctor_id',
-'date'
+        'doctor_id',
+        'date'
     ];
 
     public function doctor(){

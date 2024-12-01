@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\SpecialistController;
 use App\Http\Controllers\frontend\AppoinmentController;
+use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,20 +18,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-});
+// Route::get('/', function () {
+//     return view('frontend.home');
+// });
 
-Route::get('/about', function () {
-    return view('frontend.about');
-});
+// Route::get('/about', function () {
+//     return view('frontend.about');
+// });
 
+//Frontend HomePage
+Route::get('/',[HomeController::class, 'index'] )->name('home');
+Route::view('/about','frontend.about')->name('about');
 
 //Appoinment
 
 Route::get('/appoinment',[AppoinmentController::class, 'create'] )->name('appoinment.create');
 
-Route::post('/appoinment',[AppoinmentController::class, 'store'] );
+Route::post('/appoinment',[AppoinmentController::class, 'store'] )->name('appoinment.store');;
 // Admin Dashboard
 // Route::get('/admin/dashboard', function () {
 //     return view('backend.admin_dashboard');
