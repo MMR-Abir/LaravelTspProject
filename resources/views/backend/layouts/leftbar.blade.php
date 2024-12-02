@@ -44,6 +44,33 @@
             </ul>
         </li>
 
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dr_list1"><i class="icon-basket-loaded mr-10"></i>Appoinment Manage<span class="pull-right"><i class="fa fa-fw fa-angle-down"></i></span></a>
+            <ul id="dr_list1" class="collapse collapse-level-1">
+                <li>
+                    <a href="{{route('appoinment.index')}}">All Appoinment</a>
+                </li>
+                <li>
+                    <a href="{{url('admin/doctor/create')}}">New Appoinment</a>
+                </li>
+
+            </ul>
+        </li>
+
+
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#dr_list2"><i class="icon-basket-loaded mr-10"></i>Department Manage<span class="pull-right"><i class="fa fa-fw fa-angle-down"></i></span></a>
+            <ul id="dr_list2" class="collapse collapse-level-1">
+                <li>
+                    <a href="{{route('department.index')}}">All Department</a>
+                </li>
+                <li>
+                    <a href="{{url('admin/department/create')}}">New Department</a>
+                </li>
+
+            </ul>
+        </li>
+
 
     </ul>
 </div>

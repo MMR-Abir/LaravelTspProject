@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\backend\AppoinmentController as BackendAppoinmentController;
+use App\Http\Controllers\backend\DepartmentController;
 use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\SpecialistController;
 use App\Http\Controllers\frontend\AppoinmentController;
@@ -32,9 +34,9 @@ Route::view('/about','frontend.about')->name('about');
 
 //Appoinment
 
-Route::get('/appoinment',[AppoinmentController::class, 'create'] )->name('appoinment.create');
+Route::get('/appoinment',[AppoinmentController::class, 'create'] )->name('backend.appoinment');
 
-Route::post('/appoinment',[AppoinmentController::class, 'store'] )->name('appoinment.store');;
+Route::post('/appoinment',[AppoinmentController::class, 'store'] )->name('backend.appoinment.store');;
 // Admin Dashboard
 // Route::get('/admin/dashboard', function () {
 //     return view('backend.admin_dashboard');
@@ -69,6 +71,9 @@ Route::middleware('auth:admin')->prefix('admin')->group( function () {
     Route::view('/dashboard','backend.admin_dashboard');
     Route::resource('/specialist',SpecialistController::class);
     Route::resource('/doctor',DoctorController::class);
+    Route::resource('/appoinment',BackendAppoinmentController::class);
+    Route::get('/appoinment/status/{id}',[BackendAppoinmentController::class,'changeStatus'])->name('changeStatus');
+    Route::resource('/department',DepartmentController::class);
 });
 
 // DoctorRoute
