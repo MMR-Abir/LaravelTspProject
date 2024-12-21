@@ -91,7 +91,7 @@
                                             <label for="exampleInputuname_4" class="col-sm-3 control-label">Phone Number*</label>
                                             <div class="col-sm-9">
                                                 <div class="input-group">
-                                                    <input type="email" class="form-control"  value="{{old('phone')??$appoinment->phone}}" id="exampleInputuname_4" name="phone" placeholder="Username">
+                                                    <input type="text" class="form-control"  value="{{old('phone')??$appoinment->phone}}" id="exampleInputuname_4" name="phone" placeholder="Username">
                                                     @error('phone')
 																	<div class="alert alert-danger">{{$message}}</div>
 																	@enderror

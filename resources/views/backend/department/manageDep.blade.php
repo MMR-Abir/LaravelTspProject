@@ -49,7 +49,7 @@
                         <div class="alert alert-success">{{session('msg')}}</div>
                         @endif
                         <button class="btn btn-success" data-toggle="modal" data-target="#responsive-modal"> New Department</button>
-                        <h6 class="panel-title txt-dark">Export</h6>
+
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -119,20 +119,20 @@
                 <h5 class="modal-title">Modal Content is Responsive</h5>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="deptForm">
                     <div class="form-group">
-                        <label for="recipient-name" class="control-label mb-10">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="recipient-name" class="control-label mb-10">Department Name</label>
+                        <input type="text" class="form-control" id="recipient-name" name="name">
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="control-label mb-10">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
+                        <label for="message-text" class="control-label mb-10">Department Details</label>
+                        <textarea class="form-control" name="details" id="message-text"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Save changes</button>
+                <button type="button" id="btnAdd" class="btn btn-danger">Add</button>
             </div>
         </div>
     </div>
@@ -170,4 +170,30 @@
 <script src="{{asset('dist/js/dropdown-bootstrap-extended.js')}}"></script>
 <!-- Init JavaScript -->
 <script src="{{asset('dist/js/init.js')}}"></script>
+
+<script>
+$(document).ready(function(){
+$('#btnAdd').click(function(e){
+e.preventDefault();
+let mydata=$("#deptForm").serialize();
+ //alert(mydata);
+
+ $.ajax({
+    url:"{{route('department.store')}}",
+    type:"POST",
+data:{
+"_token":"{{csrf_token()}}",
+"data":mydata
+},
+     success: function(result){
+    alert (result);
+
+  }
+});
+
+
+
+})
+});
+</script>
 @endsection

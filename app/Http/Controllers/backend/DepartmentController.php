@@ -30,7 +30,7 @@ return view('backend.department.manageDep',compact('departments'));
      */
     public function store(Request $request)
     {
-        //
+        echo "hello";
     }
 
     /**

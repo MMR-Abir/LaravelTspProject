@@ -76,6 +76,9 @@ class AppoinmentController extends Controller
         $appoinment->doctor_id =$request->doctor;
         $appoinment->date =$request->date;
         $appoinment->remarks =$request->name;
+
+        $appoinment->update();
+        return redirect()->route('appoinment.index');
     }
 
     /**
@@ -89,7 +92,7 @@ class AppoinmentController extends Controller
 
     public function changeStatus($id)
     {
-       $record =Appoinment::find($id);
+       $record = Appoinment::find($id);
        $record->status=='pending' ? $record->status = 'confirmed': $record->status ='pending';
 
        $record->update();
