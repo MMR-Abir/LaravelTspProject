@@ -1,9 +1,15 @@
 import React from 'react'
 import Popup from './Section/Popup'
-import Header from './Header'
+import Header from './Section/Header'
+import { usePage } from '@inertiajs/react'
 //import Popup from './Section/Popup'
 
 export default function Home() {
+    const{doctors,specialists} = usePage().props;
+const spname =(sid)=>{
+const sptype = specialists.find(abc=>abc.id === sid);
+return sptype ? sptype.name :'Unknown';
+}
   return (
 <>
 
@@ -195,18 +201,23 @@ export default function Home() {
           </div>
         </div>
         <div className="row">
-          <div className="col-xl-3 col-lg-3 col-md-6 col-12">
+
+{/* loop start */}
+{doctors.map(({id,specialist_id,name,email,photo,status})=>(
+
+    <div className="col-xl-3 col-lg-3 col-md-6 col-12">
             <div className="rr-features-item p-relative wow rrfadeUp" data-wow-duration=".9s" data-wow-delay=".3s">
               <div className="rr-features-thumb p-relative">
                 <img src="assets/img/feature/bg-img.png" alt="img" />
-                <span>01</span>
+                <span>{id}</span>
               </div>
               <div className="rr-features-icon">
                 <img src="assets/img/feature/icon-1.png" alt="img" />
               </div>
               <div className="rr-features-content text-center">
-                <h3 className="rr-features-title"><a href="service-details.html">Test-Bottle</a></h3>
-                <p>Medical is the knowledge or master
+                <h3 className="rr-features-title"><a href="service-details.html">{name}</a></h3>
+                <h3 className="rr-features-title">{email}</h3>
+                <p>Speciality:{spname(specialist_id)}Medical is the knowledge or master
                   event. Identify the error of the we
                   coding page speed.</p>
                 <a className="rr-features-btn" href="service-details.html"><span>See
@@ -214,63 +225,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-3 col-md-6 col-12">
-            <div className="rr-features-item p-relative wow rrfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-              <div className="rr-features-thumb p-relative">
-                <img src="assets/img/feature/bg-img.png" alt="img" />
-                <span>02</span>
-              </div>
-              <div className="rr-features-icon">
-                <img src="assets/img/feature/icon-2.png" alt="img" />
-              </div>
-              <div className="rr-features-content text-center">
-                <h3 className="rr-features-title"><a href="service-details.html">Chest Lungs</a></h3>
-                <p>Medical is the knowledge or master
-                  event. Identify the error of the we
-                  coding page speed.</p>
-                <a className="rr-features-btn" href="service-details.html"><span>See
-                    More <i className="fa-solid fa-angle-right" /></span></a>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-lg-3 col-md-6 col-12">
-            <div className="rr-features-item p-relative wow rrfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
-              <div className="rr-features-thumb p-relative">
-                <img src="assets/img/feature/bg-img.png" alt="img" />
-                <span>03</span>
-              </div>
-              <div className="rr-features-icon">
-                <img src="assets/img/feature/icon-3.png" alt="img" />
-              </div>
-              <div className="rr-features-content text-center">
-                <h3 className="rr-features-title"><a href="service-details.html">Test Laboratory</a></h3>
-                <p>Medical is the knowledge or master
-                  event. Identify the error of the we
-                  coding page speed.</p>
-                <a className="rr-features-btn" href="service-details.html"><span>See
-                    More <i className="fa-solid fa-angle-right" /></span></a>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-lg-3 col-md-6 col-12">
-            <div className="rr-features-item p-relative wow rrfadeUp" data-wow-duration=".9s" data-wow-delay=".9s">
-              <div className="rr-features-thumb p-relative">
-                <img src="assets/img/feature/bg-img.png" alt="img" />
-                <span>04</span>
-              </div>
-              <div className="rr-features-icon">
-                <img src="assets/img/feature/icon-4.png" alt="img" />
-              </div>
-              <div className="rr-features-content text-center">
-                <h3 className="rr-features-title"><a href="service-details.html">Team Support</a> </h3>
-                <p>Medical is the knowledge or master
-                  event. Identify the error of the we
-                  coding page speed.</p>
-                <a className="rr-features-btn" href="service-details.html"><span>See
-                    More <i className="fa-solid fa-angle-right" /></span></a>
-              </div>
-            </div>
-          </div>
+
+))}
+
+
+{/* loop end */}
+
         </div>
       </div>
     </section>

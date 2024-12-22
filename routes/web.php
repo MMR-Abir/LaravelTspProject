@@ -43,6 +43,7 @@ use App\Http\Controllers\frontend\HomeController;
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
+//Frontend
 
 Route::get('/',[HomeController::class, 'Home'] )->name('home');
 Route::get('/about',[HomeController::class, 'About'])->name('about');

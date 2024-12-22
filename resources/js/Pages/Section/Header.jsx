@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from '@inertiajs/react'
+
 export default function Header() {
   return (
     <>
@@ -87,6 +89,9 @@ export default function Header() {
     </div>
   </section>
   {/* header main area end */}
+
+
+
   <header className="rr-header-height z-index-3">
     {/* header area start */}
     <div id="header-sticky" className="rr-header-area">
@@ -100,7 +105,7 @@ export default function Header() {
               <nav className="rr-main-menu-content">
                 <ul>
                   <li className="has-dropdown">
-                    <a href="index.html">Home</a>
+                    <Link href={route('home')}>Home</Link>
                     <div className="rr-submenu submenu has-homemenu">
                       <div className="row gx-6 row-cols-1 row-cols-md-2 row-cols-xl-4">
                         <div className="col homemenu">
@@ -158,7 +163,9 @@ export default function Header() {
                       </div>
                     </div>
                   </li>
-                  <li><a href="about.html">about us</a></li>
+                  <li>
+                  <Link href={route('about')}>About</Link>
+                  </li>
                   <li className="has-dropdown">
                     <a href="service-details.html">Service</a>
                     <ul className="submenu rr-submenu">
@@ -187,7 +194,7 @@ export default function Header() {
                       <li><a href="blog-details.html">Blog Details</a></li>
                     </ul>
                   </li>
-                  <li><a href="contact.html">Contact</a></li>
+                  <Link href={route('contact')}>Contact</Link>
                 </ul>
               </nav>
             </div>
@@ -210,6 +217,8 @@ export default function Header() {
     </div>
     {/* header area end */}
   </header>
+
+
 
     </>
   )
